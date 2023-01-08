@@ -18,6 +18,7 @@ int getuserline(char s[]){
         //if the line length passed/reached the max - write eol + break
         if(line_len >= LINE){
             *(s + LINE - 1) = '\n';
+            break;
         }
 
         //if the word ended in \n its the end of line -  break
@@ -120,12 +121,12 @@ void print_similar_words(char * str){
     while(cnt < MAX_LINES ){
         getword(word);
         
-        int i;
+        int i = 0;
         if(similar(word, str, 1)){
             for(i = 0; !isEOW(*(word + i)); i++){
                 printf("%c", *(word + i)); 
             } 
-            printf("%d\n",cnt);
+            printf("\n");
         }
 
         if(isEOL(*(word + i))) cnt++;
