@@ -115,6 +115,7 @@ void print_similar_words(char * str){
         getword(word);
 
         if(similar(word, str, 1)){
+            int i;
             for(int i = 0; !isEOW(*(word + i)); i++){
                 printf("%c", *(word + i)); 
             } 
