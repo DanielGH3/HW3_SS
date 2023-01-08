@@ -23,7 +23,7 @@ int getuserline(char s[]){
         }
 
         //if the word ended in \n its the end of line -  break
-        if(isEOL(*(word + end - 1))) {
+        if(end == 0 || isEOL(*(word + end - 1))) {
             break;
         }
     }
@@ -151,7 +151,7 @@ int print_similarline(char * str){
         }
 
         //if the word ended in \n its the end of line -  break
-        if(isEOL(*(word + end - 1))) {
+        if(end == 0 || isEOL(*(word + end - 1))) {
             break;
         }
     }
