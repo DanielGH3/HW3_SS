@@ -25,8 +25,6 @@ int getuserline(char s[]){
             break;
         }
     }
-
-    printf("end of line\n");
     return line_len;
 }
 
