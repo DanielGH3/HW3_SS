@@ -1,7 +1,7 @@
 all: txtfind isort
 
 
-txtfinddir: txtfinddir/txtfind.a txtfinddir/main.c 
+txtfind: txtfinddir/txtfind.a txtfinddir/main.c 
 	gcc -Wall txtfinddir/main.c txtfinddir/txtfind.a -o txtfind
 
 txtfinddir/txtfinddir.a: txtfinddir/txtfind.o
@@ -11,7 +11,7 @@ txtfinddir/txtfinddir.o: txtfinddir/txtfind.c
 	gcc -Wall -c txtfinddir/txtfind.c -o txtfinddir/txtfind.o
 
 
-isortdir: isortdir/isort.a isortdir/main.c 
+isort: isortdir/isort.a isortdir/main.c 
 	gcc -Wall isortdir/main.c isortdir/isort.a -o isort
 
 isortdir/isortdir.a: isortdir/isort.o
