@@ -12,7 +12,7 @@ int main(){
     for(int i = 0; i < NUMS - 1; i++){
         printf("%d,", *(number + i));
     } 
-    printf("%d,\n", *(number + NUMS - 1));
+    printf("%d\n", *(number + NUMS - 1));
 
     return 0;
 }
