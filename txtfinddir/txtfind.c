@@ -121,7 +121,7 @@ void print_similar_words(char * str){
     while(cnt < MAX_LINES ){
         getword(word);
         
-        int i = 0;
+        int i = 1;
         if(similar(word, str, 1)){
             for(i = 0; !isEOW(*(word + i)); i++){
                 printf("%c", *(word + i)); 
