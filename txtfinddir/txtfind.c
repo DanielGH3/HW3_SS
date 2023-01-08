@@ -97,7 +97,7 @@ void print_lines(char * str){
     int ret = 1;
     char line[LINE];
 
-    while(cnt ++ < MAX_LINES ){
+    while(cnt++ < MAX_LINES ){
         ret = getuserline(line);
 
         if(substring(line, str)){
