@@ -123,13 +123,13 @@ void print_similar_words(char * str){
         
         int end = 0;
         if(similar(word, str, 1)){
-            for(end = 0; end < word_len; end++){
+            for(end = 0; end < word_len - 1; end++){
                 printf("%c",*(word + end));
             }
             printf("\n");
         }
-        
-        if(isEOL(*(word + end - 1))) {
+
+        if(isEOL(*(word + end))) {
             cnt++;
         }
     }
