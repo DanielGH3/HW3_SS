@@ -45,12 +45,12 @@ int substring(char *str1, char *str2) {
     int i, j;
 
     for (i = 0; !isEOL(*(str1 + i)); i++) {
-        for (j = 0; !isEOL(*(str2 + j)); j++) {
+        for (j = 0; !isEOW(*(str2 + j)); j++) {
             if (*(str1 + i + j) != *(str2 + j)) {
                 break;
             }
         }
-        if (isEOL(*(str2 + j))) {
+        if (isEOW(*(str2 + j))) {
             return 1;
         }
     }
@@ -63,7 +63,7 @@ int similar(char *s, char *t, int n) {
     int max_errors = n;
 
     while (!isEOW(*(s + i)) && !isEOW(*(t + j))) {
-        if (s[i] == t[j]) {
+        if (*(s + i) == *(t + j)) {
             i++;
             j++;
             similar++;
@@ -72,7 +72,7 @@ int similar(char *s, char *t, int n) {
             i++;
         }
     }
-    if (n < 0 || similar != getlinelen(t) - 1 || getlinelen(s) - 1 - similar - max_errors > 0) {
+    if (n < 0 || similar != getwordlen(t) - 1 || getwordlen(s) - 1 - similar - max_errors > 0) {
         return 0;
     } else {
         return 1;
@@ -82,6 +82,12 @@ int similar(char *s, char *t, int n) {
 int getlinelen(char * l){
     int i = 0;
     while(!isEOL(*(l + i))) i++;
+    return i + 1;
+}
+
+int getwordlen(char * w){
+    int i = 0;
+    while(!isEOW(*(w + i))) i++;
     return i + 1;
 }
 
@@ -113,13 +119,15 @@ void print_similar_words(char * str){
     int cnt = 0;
     while(cnt < MAX_LINES ){
         getword(word);
-
+        
+        int i;
         if(similar(word, str, 1)){
-            for(int i = 0; !isEOW(*(word + i)); i++){
+            for(i = 0; !isEOW(*(word + i)); i++){
                 printf("%c", *(word + i)); 
             } 
-            if(isEOL(*(word + i))) cnt++;
-            printf("\n");
+            printf("%d\n",cnt);
         }
+
+        if(isEOL(*(word + i))) cnt++;
     }
 }
