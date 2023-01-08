@@ -127,6 +127,8 @@ void print_similar_words(char * str){
                 printf("%c",*(word + end));
             }
             printf("\n");
+        }else{
+            for(end = 0; end < word_len - 1; end++);
         }
 
         if(isEOL(*(word + end))) {
