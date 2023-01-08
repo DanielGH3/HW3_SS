@@ -1,11 +1,18 @@
 #include "isort.h"
 
+int number[NUMS];
+
 int main(){
-    int arr[5] = {5,4,3,2,1};
+    for(int i = 0; i < NUMS; i++){
+       scanf("%d", number + i);
+    }
+    
+    insertion_sort(number, 50);
 
-    insertion_sort(arr, 5);
-
-    printf_array(arr, 5);
+    for(int i = 0; i < NUMS - 1; i++){
+        printf("%d,", *(number + i));
+    } 
+    printf("%d,\n", *(number + NUMS - 1));
 
     return 0;
 }

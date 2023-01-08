@@ -18,10 +18,3 @@ void insertion_sort(int* arr, int len) {
         *(arr + j + 1) = key;
     }
 }
-
-void printf_array(int* arr, int len){
-    printf("{");
-    for(int i = 0; i < len; i++)
-        printf("%d ", *(arr + i));
-    printf("}");
-}
