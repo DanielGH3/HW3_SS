@@ -35,8 +35,9 @@ int getword(char w[]){
     //get chars from the user into the word array
     char input = '0';
     while(!isEOW(input) && word_len < WORD){
-        scanf("%c", &input);
+        int val = scanf("%c", &input);
         *(w + word_len++) = input;
+        if(val == 0) return 0;
     }
 
     return word_len;
@@ -131,7 +132,7 @@ void print_similar_words(char * str){
             for(end = 0; end < word_len - 1; end++);
         }
 
-        if(isEOL(*(word + end))) {
+        if(isEOL(*(word + end) || word_len == 0)) {
             cnt++;
         }
     }
