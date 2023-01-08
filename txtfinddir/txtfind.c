@@ -130,7 +130,7 @@ void print_similar_words(char * str){
         }
         
         if(isEOL(*(word + end - 1))) {
-            break;
+            cnt++;
         }
     }
 }
