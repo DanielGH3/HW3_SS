@@ -94,11 +94,10 @@ int isEOL(char c){
 }
 
 void print_lines(char * str){
-    int ret = 1;
     char line[LINE];
-
+    int cnt = 0;
     while(cnt++ < MAX_LINES ){
-        ret = getuserline(line);
+        getuserline(line);
 
         if(substring(line, str)){
             for(int i = 0; !isEOL(*(line + i)); i++){
@@ -110,11 +109,10 @@ void print_lines(char * str){
 }
 
 void print_similar_words(char * str){
-    int ret = 1;
     char word[WORD];
     int cnt = 0;
     while(cnt < MAX_LINES ){
-        ret = getword(word);
+        getword(word);
 
         if(similar(word, str, 1)){
             for(int i = 0; !isEOW(*(word + i)); i++){
