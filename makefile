@@ -1,24 +1,24 @@
-all: txtfind isort
+all: txtfinddir isortdir
 
 
-txtfind: txtfind/txtfind.a txtfind/main.c 
-	gcc -Wall txtfind/main.c txtfind/txtfind.a -o txtfind
+txtfinddir: txtfinddir/txtfinddir.a txtfinddir/main.c 
+	gcc -Wall txtfinddir/main.c txtfinddir/txtfinddir.a -o txtfinddir
 
-txtfind/txtfind.a: txtfind/txtfind.o
-	ar -rc txtfind/txtfind.a txtfind/txtfind.o
+txtfinddir/txtfinddirdir.a: txtfinddir/txtfinddir.o
+	ar -rc txtfinddir/txtfinddir.a txtfinddir/txtfinddir.o
 
-txtfind/txtfind.o: txtfind/txtfind.c
-	gcc -Wall -c txtfind/txtfind.c -o txtfind/txtfind.o
+txtfinddir/txtfinddir.o: txtfinddir/txtfinddir.c
+	gcc -Wall -c txtfinddir/txtfinddir.c -o txtfinddir/txtfinddir.o
 
 
-isort: isort/isort.a isort/main.c 
-	gcc -Wall isort/main.c isort/isort.a -o isort
+isortdir: isortdir/isortdir.a isortdir/main.c 
+	gcc -Wall isortdir/main.c isortdir/isortdir.a -o isortdir
 
-isort/isort.a: isort/isort.o
-	ar -rc isort/isort.a isort/isort.o
+isortdir/isortdir.a: isortdir/isortdir.o
+	ar -rc isortdir/isortdir.a isortdir/isortdir.o
 
-isort/isort.o: isort/isort.c
-	gcc -Wall -c isort/isort.c -o isort/isort.o
+isortdir/isortdir.o: isortdir/isortdir.c
+	gcc -Wall -c isortdir/isortdir.c -o isortdir/isortdir.o
 
 clean:
 	rm -f *.o *.a txtfind isort
