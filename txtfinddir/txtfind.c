@@ -12,8 +12,8 @@ int getuserline(char s[]){
         word_len = getword(word);
 
         //get chars from the the word array into the line array
-        for(end = 0; end < word_len && line_len < LINE; end++){
-            *(s + line_len++) = *(word + end);
+        for(end = 0; end < word_len && line_len < LINE; end++, line_len++){
+            *(s + line_len) = *(word + end);
         }
 
         //if the line length passed/reached the max - write eol + break
@@ -48,7 +48,7 @@ int substring(char *str1, char *str2) {
     int i, j;
 
     for (i = 0; !isEOL(*(str1 + i)); i++) {
-        for (j = 0; !isEOW(*(str2 + j)); j++) {
+        for (j = 0; !isEOW(*(str2 + j)) && !isEOL(*(str1 + i + j)); j++) {
             if (*(str1 + i + j) != *(str2 + j)) {
                 break;
             }
@@ -130,17 +130,17 @@ int print_similarline(char * str){
 
         //get chars from the the word array into the line array
         if(similar(word, str, 1)){
-            for(end = 0; end < word_len && line_len < LINE; end++){
+            for(end = 0; end < word_len && line_len < LINE; end++, line_len++){
                 if(!isEOW(*(word + end)))
                     printf("%c", *(word + end));
 
-                *(s + line_len++) = *(word + end);
+                *(s + line_len) = *(word + end);
             }
             printf("\n");
         }
         else{
-            for(end = 0; end < word_len && line_len < LINE; end++){
-                *(s + line_len++) = *(word + end);
+            for(end = 0; end < word_len && line_len < LINE; end++, line_len++){
+                *(s + line_len) = *(word + end);
             }
         }
 
