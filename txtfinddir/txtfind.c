@@ -1,4 +1,5 @@
 #include "txtfind.h"
+int print_similarline(char * str);
 
 int getuserline(char s[]){
     int line_len = 0;
@@ -37,7 +38,7 @@ int getword(char w[]){
     while(!isEOW(input) && word_len < WORD){
         int val = scanf("%c", &input);
         *(w + word_len++) = input;
-        if(val == 0) return 0;
+        if(val == 0) return word_len;
     }
 
     return word_len;
@@ -116,25 +117,50 @@ void print_lines(char * str){
     }
 }
 
-void print_similar_words(char * str){
-   char word[WORD];
-    int cnt = 1;
+int print_similarline(char * str){
+    int line_len = 0;
+    char s[LINE];
+    char word[WORD];
     int word_len;
     int end;
 
-    while(cnt < MAX_LINES ){
+    while(1){
+        //get a single word from user into an array
         word_len = getword(word);
 
+        //get chars from the the word array into the line array
         if(similar(word, str, 1)){
-            for(end = 0; end < word_len; end++){
+            for(end = 0; end < word_len && line_len < LINE; end++){
                 if(!isEOW(*(word + end)))
                     printf("%c", *(word + end));
+
+                *(s + line_len++) = *(word + end);
             }
             printf("\n");
         }
-
-        if(isEOL(*(word + word_len - 1))) {
-            cnt++;
+        else{
+            for(end = 0; end < word_len && line_len < LINE; end++){
+                *(s + line_len++) = *(word + end);
+            }
         }
+
+        //if the line length passed/reached the max - write eol + break
+        if(line_len >= LINE){
+            *(s + LINE - 1) = '\n';
+            break;
+        }
+
+        //if the word ended in \n its the end of line -  break
+        if(isEOL(*(word + end - 1))) {
+            break;
+        }
+    }
+    return line_len;
+}
+
+void print_similar_words(char * str){
+    int cnt = 0;
+    while(cnt++ < MAX_LINES ){
+        print_similarline(str);
     }
 }
