@@ -37,8 +37,8 @@ int getword(char w[]){
     char input = '0';
     while(!isEOW(input) && word_len < WORD){
         int val = scanf("%c", &input);
+        if(val == -1) return word_len;
         *(w + word_len++) = input;
-        if(val == 0) return word_len;
     }
 
     return word_len;
