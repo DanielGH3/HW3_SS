@@ -120,7 +120,7 @@ void print_similar_words(char * str){
             for(int i = 0; !isEOW(*(word + i)); i++){
                 printf("%c", *(word + i)); 
             } 
-            if(isEOL(*(word + i)) cnt++;
+            if(isEOL(*(word + i))) cnt++;
             printf("\n");
         }
     }
