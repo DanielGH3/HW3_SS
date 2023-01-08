@@ -1,7 +1,7 @@
 #include "isort.h"
 
 void shift_element(int* arr, int i){
-    for(++i; i > 1; i--){
+    for(; i > 0; i--){
         *(arr + i) = *(arr + i - 1);
     }
 }
