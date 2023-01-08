@@ -99,7 +99,7 @@ void print_lines(char * str){
     int ret = 1;
     char line[LINE];
 
-    while(ret != -1){
+    while(cnt ++ < MAX_LINES ){
         ret = getuserline(line);
 
         if(substring(line, str)){
@@ -114,14 +114,15 @@ void print_lines(char * str){
 void print_similar_words(char * str){
     int ret = 1;
     char word[WORD];
-
-    while(ret != -1){
+    int cnt = 0;
+    while(cnt < MAX_LINES ){
         ret = getword(word);
 
         if(similar(word, str, 1)){
             for(int i = 0; !isEOW(*(word + i)); i++){
                 printf("%c", *(word + i)); 
             } 
+            if(isEOL(*(word + i)) cnt++;
             printf("\n");
         }
     }
