@@ -7,7 +7,7 @@ int main(){
        scanf("%d", number + i);
     }
     
-    insertion_sort(number, 50);
+    insertion_sort(number, NUMS);
 
     for(int i = 0; i < NUMS - 1; i++){
         printf("%d,", *(number + i));
